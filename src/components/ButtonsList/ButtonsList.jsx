@@ -1,9 +1,9 @@
-export function ButtonsList({handleClickBtnGood, handleClickBtnNeutral, handleClickBtnBad}){
+export function ButtonsList({onLeaveFeedBack}){
   return (
-    <ul>
-      <button onClick={handleClickBtnGood}>Good</button>
-      <button onClick={handleClickBtnNeutral}>Neutral</button>
-      <button onClick={handleClickBtnBad}>Bad</button>
+    <ul onClick={onLeaveFeedBack}>
+      <button>Good</button>
+      <button>Neutral</button>
+      <button>Bad</button>
     </ul>
   )
 };
