@@ -7,9 +7,7 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    positiveFeedback: 0,
-  }
+  };
 
   onLeaveFeedBack = (e) => {
     switch(e.target.textContent){
@@ -30,25 +28,10 @@ export class App extends Component {
         break;
       default:
     }
+  };
 
-    this.countTotalFeedback()
-    this.countPositiveFeedbackPercentage()
-  }
-
-  countTotalFeedback = () => {
-    this.setState((prevState)=>{
-      return {total: prevState.total + 1}
-    })
-  }
-
-  countPositiveFeedbackPercentage = () => {
-    this.setState((prevState)=>{
-      return {positiveFeedback: Math.round((prevState.good/prevState.total)*100)}
-    })
-  }
-  
   render() {
-    const {good, neutral, bad, total, positiveFeedback} = this.state;
+    const {good, neutral, bad} = this.state;
     return <Container>
             <Section 
               numberSection = '1'
@@ -61,9 +44,9 @@ export class App extends Component {
               good = {good}
               neutral = {neutral}
               bad = {bad}
-              total = {total}
-              positiveFeedback = {positiveFeedback}
             />
           </Container>;
   }
 };
+
+
