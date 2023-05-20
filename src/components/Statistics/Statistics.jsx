@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { StatisticsList, ItemList } from "./Statistics.styled"
 
-export function Statistics({good, neutral, bad, total, positiveFeedback, children}) {
+function Statistics({good, neutral, bad, total, positiveFeedback, children}) {
   return (
     total !== 0
     ?
@@ -25,3 +25,5 @@ Statistics.propTypes = {
   positiveFeedback: PropTypes.number.isRequired,
   children: PropTypes.object.isRequired,
 };
+
+export default Statistics;

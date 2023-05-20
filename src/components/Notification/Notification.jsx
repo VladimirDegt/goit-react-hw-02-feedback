@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { TextMessage } from "./Notification.styled"
 
-export function Notification({message}) {
+function Notification({message}) {
   return (
     <TextMessage>{message}</TextMessage>
   )
@@ -10,3 +10,5 @@ export function Notification({message}) {
 Notification.propTypes ={
   message: PropTypes.string.isRequired,
 }
+
+export default Notification;

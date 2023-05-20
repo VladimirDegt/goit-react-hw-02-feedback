@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions";
-import { Statistics } from "components/Statistics/Statistics";
-import { Notification } from "components/Notification/Notification";
+import FeedbackOptions from "components/FeedbackOptions";
+import Statistics from "components/Statistics";
+import Notification from "components/Notification";
 
 export function Section({title, numberSection, onLeaveFeedBack, good, neutral, bad, total, positiveFeedback}){
   return (
