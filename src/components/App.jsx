@@ -1,7 +1,6 @@
 import { Component } from "react"
-
-import { ButtonsList } from "./ButtonsList/ButtonsList";
-import { Statistics } from "./Statistics/Statistics";
+import { Section } from "./Section/Section";
+import { Container } from "./App.styled";
 
 export class App extends Component {
   state = {
@@ -13,18 +12,23 @@ export class App extends Component {
   }
 
   onLeaveFeedBack = (e) => {
-    if(e.target.textContent === 'Good') {
-      this.setState((prevState)=>{
-        return {good: prevState.good += 1}
-      })
-    } else if (e.target.textContent === 'Neutral') {
-      this.setState((prevState)=>{
-        return {neutral: prevState.neutral += 1}
-      })
-    } else if (e.target.textContent === 'Bad') {
-      this.setState((prevState)=>{
-        return {bad: prevState.bad += 1}
-      })
+    switch(e.target.textContent){
+      case 'Good':
+        this.setState((prevState)=>{
+          return {good: prevState.good += 1};
+        });
+        break;
+      case 'Neutral':
+        this.setState((prevState)=>{
+          return {neutral: prevState.neutral += 1};
+        });
+        break;
+      case 'Bad':
+        this.setState((prevState)=>{
+          return {bad: prevState.bad += 1};
+        });
+        break;
+      default:
     }
 
     this.countTotalFeedback()
@@ -45,20 +49,21 @@ export class App extends Component {
   
   render() {
     const {good, neutral, bad, total, positiveFeedback} = this.state;
-    return <div>
-            <h1>Please leave feedback</h1>
-            <ButtonsList 
+    return <Container>
+            <Section 
+              numberSection = '1'
+              title='Please leave feedback'
               onLeaveFeedBack = {this.onLeaveFeedBack}
             />
-            <h2>Statistics</h2>
-            <Statistics
+            <Section
+              numberSection = '2'
+              title='Statistics'
               good = {good}
               neutral = {neutral}
               bad = {bad}
               total = {total}
               positiveFeedback = {positiveFeedback}
             />
-          </div>;
+          </Container>;
   }
-
 };

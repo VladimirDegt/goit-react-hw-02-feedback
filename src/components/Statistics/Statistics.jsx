@@ -1,11 +1,27 @@
-export function Statistics({good, neutral, bad, total, positiveFeedback}) {
+import PropTypes from 'prop-types';
+import { StatisticsList, ItemList } from "./Statistics.styled"
+
+export function Statistics({good, neutral, bad, total, positiveFeedback, children}) {
   return (
-    <ul>
-      <li>Good: {good}</li>
-      <li>Neutral: {neutral}</li>
-      <li>Bad: {bad}</li>
-      <li>Total: {total}</li>
-      <li>Positive feedback: {positiveFeedback}%</li>
-    </ul>
+    total !== 0
+    ?
+    <StatisticsList>
+      <ItemList>Good: {good}</ItemList>
+      <ItemList>Neutral: {neutral}</ItemList>
+      <ItemList>Bad: {bad}</ItemList>
+      <ItemList>Total: {total}</ItemList>
+      <ItemList>Positive feedback: {positiveFeedback}%</ItemList>
+    </StatisticsList>
+    :
+    children
   )
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positiveFeedback: PropTypes.number.isRequired,
+  children: PropTypes.object.isRequired,
 };
