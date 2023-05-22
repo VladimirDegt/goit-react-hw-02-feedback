@@ -32,4 +32,7 @@ Section.propTypes = {
   title: PropTypes.string.isRequired,
   numberSection: PropTypes.string.isRequired,
   onLeaveFeedBack: PropTypes.func,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
 };
