@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import { ButtonsList, Button } from "./FeedbackOptions.styled";
 
-function FeedbackOptions({onLeaveFeedBack}){
+function FeedbackOptions({onLeaveFeedBack, options}){
   return (
     <ButtonsList onClick={onLeaveFeedBack}>
-      <li><Button>Good</Button></li>
-      <li><Button>Neutral</Button></li>
-      <li><Button>Bad</Button></li>
+      {options.map( (item) => <li key={item}><Button>{item}</Button></li>)}
     </ButtonsList>
   )
 };

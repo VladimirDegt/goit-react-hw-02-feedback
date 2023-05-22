@@ -8,8 +8,10 @@ export function Section({title, numberSection, onLeaveFeedBack, good, neutral, b
     numberSection === '1'
     ? <>
         <h1>{title}</h1>
-        <FeedbackOptions onLeaveFeedBack={onLeaveFeedBack}/>
-        </>
+        <FeedbackOptions 
+          options = {['Good', 'Neutral', 'Bad']} 
+          onLeaveFeedBack = {onLeaveFeedBack}/>
+      </>
     : <>
         <h2>{title}</h2>
         <Statistics
