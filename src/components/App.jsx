@@ -27,7 +27,11 @@ export class App extends Component {
             </Section>    
             <Section title='Statistics'>
               <Statistics 
-                options = {this.state}
+                options = {{
+                  good: this.state.good,
+                  neutral: this.state.neutral,
+                  bad: this.state.bad,
+                }}
               />
             </Section>
           </Container>;
