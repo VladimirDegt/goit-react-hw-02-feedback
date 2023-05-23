@@ -9,25 +9,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedBack = (e) => {
-    switch(e.target.textContent){
-      case 'Good':
-        this.setState((prevState)=>{
-          return {good: prevState.good += 1};
-        });
-        break;
-      case 'Neutral':
-        this.setState((prevState)=>{
-          return {neutral: prevState.neutral += 1};
-        });
-        break;
-      case 'Bad':
-        this.setState((prevState)=>{
-          return {bad: prevState.bad += 1};
-        });
-        break;
-      default:
-    }
+  onLeaveFeedBack = ({target}) => {
+    this.setState((prevState)=>{
+      return {[target.name]: prevState[target.name] += 1}
+    });
   };
 
   render() {

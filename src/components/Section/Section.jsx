@@ -9,7 +9,7 @@ export function Section({title, numberSection, onLeaveFeedBack, good, neutral, b
     ? <>
         <h1>{title}</h1>
         <FeedbackOptions 
-          options = {['Good', 'Neutral', 'Bad']} 
+          options = {['good', 'neutral', 'bad']} 
           onLeaveFeedBack = {onLeaveFeedBack}/>
       </>
     : <>
