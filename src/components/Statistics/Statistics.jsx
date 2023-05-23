@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import Notification from "components/Notification";
 import { StatisticsList, ItemList } from "./Statistics.styled"
 import { countTotalFeedback } from 'utils/count-total-feedback';
 import { countPositiveFeedbackPercentage } from 'utils/count-positive-feedback-percentage';
 
-function Statistics({good, neutral, bad, children}) {
+function Statistics({good, neutral, bad}) {
   const total = countTotalFeedback(good, neutral, bad);
 
   return (
@@ -17,15 +18,14 @@ function Statistics({good, neutral, bad, children}) {
       <ItemList>Positive feedback: {countPositiveFeedbackPercentage(good, total)}%</ItemList>
     </StatisticsList>
     :
-    children
+    <Notification message="There is no feedback"/>
   )
 };
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  children: PropTypes.object.isRequired,
+  // good: PropTypes.number.isRequired,
+  // neutral: PropTypes.number.isRequired,
+  // bad: PropTypes.number.isRequired,
 };
 
 export default Statistics;

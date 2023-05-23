@@ -1,6 +1,8 @@
 import { Component } from "react"
 import { Section } from "./Section/Section";
 import { Container } from "./App.styled";
+import FeedbackOptions from "./FeedbackOptions";
+import Statistics from "./Statistics";
 
 export class App extends Component {
   state = {
@@ -18,18 +20,19 @@ export class App extends Component {
   render() {
     const {good, neutral, bad} = this.state;
     return <Container>
-            <Section 
-              numberSection = '1'
-              title='Please leave feedback'
-              onLeaveFeedBack = {this.onLeaveFeedBack}
-            />
-            <Section
-              numberSection = '2'
-              title='Statistics'
-              good = {good}
-              neutral = {neutral}
-              bad = {bad}
-            />
+            <Section title='Please leave feedback'>
+              <FeedbackOptions 
+                options = {['good', 'neutral', 'bad']} 
+                onLeaveFeedBack = {this.onLeaveFeedBack} 
+              /> 
+            </Section>    
+            <Section title='Statistics'>
+              <Statistics 
+                good = {good}
+                neutral = {neutral}
+                bad = {bad}
+              />
+            </Section>
           </Container>;
   }
 };

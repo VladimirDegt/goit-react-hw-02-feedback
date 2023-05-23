@@ -1,27 +1,23 @@
 import PropTypes from 'prop-types';
 import FeedbackOptions from "components/FeedbackOptions";
 import Statistics from "components/Statistics";
-import Notification from "components/Notification";
 
-export function Section({title, numberSection, onLeaveFeedBack, good, neutral, bad, total, positiveFeedback}){
+export function Section(props){
+  console.log(props);
   return (
-    numberSection === '1'
-    ? <>
+     <>
         <h1>{title}</h1>
         <FeedbackOptions 
-          options = {['good', 'neutral', 'bad']} 
-          onLeaveFeedBack = {onLeaveFeedBack}/>
-      </>
-    : <>
+          options = {options} 
+          onLeaveFeedBack = {onLeaveFeedBack}
+        />
+
         <h2>{title}</h2>
         <Statistics
           good = {good}
           neutral = {neutral}
           bad = {bad}
-          total = {total}
-          positiveFeedback = {positiveFeedback}
         >
-          <Notification message="There is no feedback"/>
         </Statistics>
       </>
     
@@ -30,7 +26,7 @@ export function Section({title, numberSection, onLeaveFeedBack, good, neutral, b
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  numberSection: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string),
   onLeaveFeedBack: PropTypes.func,
   good: PropTypes.number,
   neutral: PropTypes.number,
