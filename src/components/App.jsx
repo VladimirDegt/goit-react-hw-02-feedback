@@ -18,7 +18,6 @@ export class App extends Component {
   };
 
   render() {
-    const {good, neutral, bad} = this.state;
     return <Container>
             <Section title='Please leave feedback'>
               <FeedbackOptions 
@@ -28,9 +27,7 @@ export class App extends Component {
             </Section>    
             <Section title='Statistics'>
               <Statistics 
-                good = {good}
-                neutral = {neutral}
-                bad = {bad}
+                options = {this.state}
               />
             </Section>
           </Container>;
