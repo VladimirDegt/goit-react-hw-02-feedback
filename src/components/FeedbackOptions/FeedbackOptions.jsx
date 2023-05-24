@@ -3,8 +3,8 @@ import { ButtonsList, Button } from "./FeedbackOptions.styled";
 
 function FeedbackOptions({onLeaveFeedBack, options}){
   return (
-    <ButtonsList onClick={onLeaveFeedBack}>
-      {options.map( (item) => <li key={item}><Button name={item}>{item[0].toUpperCase() + item.slice(1)}</Button></li>)}
+    <ButtonsList>
+      {options.map( (item) => <li key={item}><Button onClick={()=>onLeaveFeedBack(item)}>{item[0].toUpperCase() + item.slice(1)}</Button></li>)}
     </ButtonsList>
   )
 };
