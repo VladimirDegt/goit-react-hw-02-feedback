@@ -11,10 +11,9 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedBack = ({target}) => {
-    const btnClick = target.textContent.toLowerCase();
+  onLeaveFeedBack = (item) => {
     this.setState((prevState)=>{
-      return {[btnClick]: prevState[btnClick] += 1}
+      return {[item]: prevState[item] += 1}
     });
   };
 
